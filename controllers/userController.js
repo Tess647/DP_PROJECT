@@ -1,4 +1,4 @@
-const User = require("./../models/user");
+const User = require("../models/user");
 
 exports.getAllUsers = async (req, res) => {
   try {
@@ -39,3 +39,7 @@ exports.createUser = async (req, res) => {
     });
   }
 };
+
+exports.testConnection = async (req, res) => {
+  res.json({ message: 'Backend is working!' });
+}

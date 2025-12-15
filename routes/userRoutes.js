@@ -8,4 +8,6 @@ router
   .get(userController.getAllUsers)
   .post(userController.createUser);
 
+router.route("/test").get(userController.testConnection);
+
 module.exports = router;

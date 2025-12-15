@@ -1,13 +1,21 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
-
+const cors = require('cors');
 const app = require("./app");
+
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://localhost:3001'], // Add all frontend ports
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 const DB = process.env.DATABASE.replace(
   "<PASSWORD>",
   process.env.DATABASE_PASSWORD
 );
+
 
 const connectDB = async () => {
   try {
@@ -21,7 +29,7 @@ const connectDB = async () => {
 
 connectDB();
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 app.listen(port, () => {
   console.log(` App running on port ${port}...`);
 });
