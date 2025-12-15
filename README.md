@@ -134,7 +134,7 @@ http://localhost:5000/api/v1
 |--------|----------|-------------|--------------|
 | GET | `/users/test` | Test backend connection | None |
 | GET | `/users` | Get all users | None |
-| POST | `/users` | Create a new user | `{ "name": "string", "profilePictureURL": "string" }` |
+| POST | `/users` | Create a new user | `{ "name": "string" }` |
 
 ### Detailed Endpoint Documentation
 
