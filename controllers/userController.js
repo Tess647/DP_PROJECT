@@ -22,9 +22,9 @@ exports.getAllUsers = async (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
-  const { name, profilePictureURL } = req.body;
+  const { name } = req.body;
   try {
-    const user = new User({ name, profilePictureURL });
+    const user = new User({ name });
     await user.save();
     res.status(201).json({
       status: "success",
